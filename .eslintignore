@@ -1,0 +1,8 @@
+
+tools/**
+app/node_modules/**
+node_modules/**
+test/**
+static/**
+dist/**
+build/**

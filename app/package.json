@@ -1,0 +1,11 @@
+{
+  "name": "contacts",
+  "productName": "Contacts",
+  "version": "0.1.0",
+  "description": "An Electron + Vue.js project.",
+  "author": "Jake Humphrey <jakehumphrey18@gmail.com>",
+  "main": "background.js",
+  "dependencies": {
+    "jquery": "2.2.2"
+  }
+}

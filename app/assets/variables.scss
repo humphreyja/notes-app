@@ -1,0 +1,25 @@
+// COLORS
+$background: white;
+$background-opposite: black;
+$background-grey: #c5c5c5;
+$background-grey-opposite: white;
+$background-grey-shimmer: linear-gradient(#d3cad6 -10%, #cac4ca 46%, #ada8a8);
+$blue-shimmer: linear-gradient(#bd9fe8 -20%, #7b93d8 19%, #1279dc);
+$green-shimmer: linear-gradient(#9aeae8 -8%, #36d048 26%, #27b51e);
+$blue: #0056ff;
+// FONT
+$base-font-weight: 300;
+$base-font-family: 'Roboto', sans-serif;
+
+.tag {
+  background: $blue-shimmer;
+  padding: 5px;
+  border-radius: 5px;
+  line-height: 2em;
+  color: white;
+  font-size: 1em;
+}
+
+.accent {
+  color: $blue;
+}
