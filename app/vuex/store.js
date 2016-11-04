@@ -1,28 +1,63 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Persist from './persist'
 
-// Make vue aware of Vuex
 Vue.use(Vuex)
 
-// Create an object to hold the initial state when
-// the app starts up
 const state = {
-  // When the app starts, count is set to 0
-  count: 0
+  notes: [],
+  activeNote: {},
+  status: 0
 }
 
-// Create an object storing various mutations. We will write the mutation
 const mutations = {
-  // A mutation receives the current state as the first argument
-  // You can make any modifications you want inside this function
-  INCREMENT (state, amount) {
-    state.count = state.count + amount
+  INSERT (state) {},
+  UPDATE (state, note) {},
+  DELETE (state, note) {},
+
+  TOGGLE_FAVORITE (state) {
+    state.activeNote.favorite = !state.activeNote.favorite
+  },
+
+  SET_ACTIVE_NOTE (state, note) {
+    if (note === null) {
+      state.activeNote = state.notes[0]
+    } else {
+      state.activeNote = note
+    }
+  },
+
+  EDIT_NOTE_TEXT (state, text) {
+    state.activeNote.text = text
+  },
+
+  PUSH_NOTE (state, note) {
+    state.notes.push(note)
+  },
+
+  POP_NOTE (state, note) {
+    state.notes.$remove(note)
+  },
+
+  SYNC_NOTES (state, notes) {
+    state.notes = notes
+  },
+
+  NOT_SAVED (state) {
+    state.status = 0
+  },
+
+  SAVING (state) {
+    state.status = 1
+  },
+
+  SAVED (state) {
+    state.status = 2
   }
 }
 
-// Combine the initial state and the mutations to create a Vuex store.
-// This store can be linked to our app.
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  middlewares: [Persist]
 })

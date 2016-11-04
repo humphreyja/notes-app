@@ -20,7 +20,7 @@ module.exports = {
     __dirname: false
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
+    extensions: ['', '.js', '.vue', '.json'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       app: path.resolve(__dirname, '../app')
@@ -71,7 +71,8 @@ module.exports = {
           name: path.join(config.build.assetsSubDirectory, '[name].[ext]')
         }
       }
-    ]
+    ],
+    noParse: /node_modules\/json-schema\/lib\/validate\.js/
   },
   plugins: [
     new webpack.ExternalsPlugin('commonjs2', [
@@ -87,6 +88,11 @@ module.exports = {
       'screen',
       'shell'
     ])
+  ],
+  externals: [
+    // put your node 3rd party libraries which can't be built with webpack here
+    // (mysql, mongodb, and so on..)
+    'leveldown'
   ],
   vue: {
     loaders: cssLoaders()

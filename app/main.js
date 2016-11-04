@@ -1,8 +1,12 @@
-import App from './pages/App'
-import router from './router'
-import store from './vuex/store' // vuex store instance
-import { sync } from 'vuex-router-sync'
+// main.js
 
-sync(store, router)
+import Vue from 'vue'
+import store from './vuex/store'
+import App from './components/App.vue'
 
-router.start(App, '#app')
+/* eslint-disable no-new */
+new Vue({
+  store, // inject store to all children
+  el: 'body',
+  components: { App }
+})

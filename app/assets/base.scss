@@ -1,19 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,900);
+
+html, #app {
+  height: 100%;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+  max-height: 100%;
+  position: relative;
   font-family: $base-font-family;
   font-weight: $base-font-weight;
-}
-
-h1, h2, h3, h4, h5, p {
-  color: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-a {
-  color: inherit;
-  font-weight: inherit;
-  size: inherit;
 }
 
 .os {
